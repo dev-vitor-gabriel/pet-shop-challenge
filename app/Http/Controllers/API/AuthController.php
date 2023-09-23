@@ -22,8 +22,9 @@ class AuthController extends Controller
             'password' => 'required|string',
         ]);
         $credentials = $request->only('email', 'password');
+
         $token = Auth::attempt($credentials);
-        
+
         if (!$token) {
             return response()->json([
                 'message' => 'Unauthorized',
@@ -45,16 +46,22 @@ class AuthController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'permission'=>'required|enum|in:client,office,admin',
+            'is_admin' =>  'boolean',
             'password' => 'required|string',
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'permission' => $request->permission,
+            'is_admin' => $request->is_admin ?? false,
             'password' => Hash::make($request->password),
         ]);
+
+        if (!$user) {
+            return response()->json([
+                'message' => 'Error',
+            ], 400);
+        }
 
         return response()->json([
             'message' => 'User created successfully',
