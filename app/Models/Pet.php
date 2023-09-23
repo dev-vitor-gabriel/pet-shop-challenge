@@ -43,4 +43,5 @@ class Pet extends Model
         ->update([
             'is_ative_tbp' => 0
         ]);
-    }}
+    }
+}
