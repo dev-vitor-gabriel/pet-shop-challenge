@@ -17,8 +17,8 @@ use App\Http\Controllers\API\AtendimentoController;
 
 Route::controller(AtendimentoController::class)->middleware('jwt.auth')->group(function () {
     Route::post('', 'create');
-    Route::get('{id_pet}', 'get');
+    Route::get('{id_atendimento}', 'get');
     Route::get('', 'get');
-    Route::put('{id_pet}', 'update');
-    Route::delete('{id_pet}', 'delete');
+    Route::put('{id_atendimento}', 'update');
+    Route::delete('{id_atendimento}', 'delete');
 });
