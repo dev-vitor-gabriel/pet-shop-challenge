@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('tb_atendimento', function (Blueprint $table) {
             $table->id('id_atendimento_tba');
+            $table->date('dta_atendimento_tba');
             $table->unsignedBigInteger('id_pet_tba');
             $table->foreign('id_pet_tba')->references('id_pet_tbp')->on('tb_pet');
             $table->timestamps();
