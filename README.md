@@ -57,9 +57,25 @@
 }
 
 ```
+* GET /api/auth/{id} `Rota que retorna todos os pets cadastrados, ou caso queira um específico, passe o id na rota`
+
 * POST /api/auth/refresh `Rota em que podemos realizar o refresh do token`
 
 * POST /api/auth/logout  `Rota em que podemos realizar o logout do sistema`
+
+* PUT /api/auth/{id}  `Rota em que podemos atualizar o nome do usuário de acordo com o id`
+```
+{
+	"name": "Digite aqui o nome do usuário",
+	"email": "Digite aqui o email do usuário",
+    "password": "Digite aqui sua senha",
+    "is_admin": "Defina como true ou false(Caso não seja preenchido será como padrão false)"
+}
+
+* DELETE /api/auth/{id} `Rota em que deletamos o usuário por seu id`
+
+
+```
 
 # Rotas relacionadas ao pet
 * POST /api/pet/  `Rota de cadastro de pet`
