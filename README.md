@@ -120,7 +120,7 @@
 ```
 
 * DELETE /api/atendimento/{id_atendimento} `Rota em que deletamos o atendimento por seu id_atendimento`
-# Teste feito utilizando Laravel 10,React e Mysql 
+# Teste feito utilizando Laravel 10 e Mysql
 
 
 
