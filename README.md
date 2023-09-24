@@ -33,6 +33,7 @@
 ## User
 # Rotas relacionadas ao usuário
 * POST /api/auth/register  `Rota de cadastro de usuário`
+`Nessa rota, definimos a coluna is_admin, caso o usuário seja admin ele terá pleno acesso ao sistema, e caso não, ele só poderá consultar e alterar os dados que ele mesmo tiver cadastrado`
 
 ```
 {
