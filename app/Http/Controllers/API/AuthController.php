@@ -18,7 +18,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'email' => 'required|string|email',
+            'email'    => 'required|string|email',
             'password' => 'required|string',
         ]);
         $credentials = $request->only('email', 'password');
@@ -86,5 +86,58 @@ class AuthController extends Controller
                 'type' => 'bearer',
             ]
         ]);
+    }
+
+    public function get(Int $id = null) {
+        $is_admin = auth()->user()->is_admin;
+        $id_user  = Auth::id();
+
+        if($is_admin){
+            $id_user = null;
+        }
+
+        if($id){
+            $data = User::getById($id, $id_user);
+            return $data;
+        }
+
+        $data = User::getAll($id_user);
+        return $data;
+    }
+
+    public function update(Int $id, Request $request) {
+        $is_admin = auth()->user()->is_admin;
+        $id_user  = Auth::id();
+
+        if($is_admin){
+            $id_user = null;
+        }
+        $request->validate([
+            'name'          => 'string|max:255',
+            'email'         => 'string|max:255',
+            'password'      => 'string',
+            'is_admin'      => 'boolean'
+        ]);
+
+        $user = User::updateReg($id, $request, $id_user);
+
+        if($user == false){
+            return response()->json(null,404);
+        }
+    }
+
+    public function delete(Int $id) {
+        $is_admin = auth()->user()->is_admin;
+        $id_user  = Auth::id();
+
+        if($is_admin){
+            $id_user = null;
+        }
+
+        $user = User::deleteReg($id, $id_user);
+
+        if($user == false){
+          return response()->json(null,404);
+        }
     }
 }
