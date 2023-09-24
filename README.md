@@ -2,15 +2,19 @@
 
 
 ## Configurações iniciais
-1. Para os testes o primeiro passo deverá ser rodar o comando `composer install`
+1. Instalar dependencias 
+`composer install`
 
-2. O segundo passo será subir o docker `docker compose up`.
+2. Iniciar o docker
+`docker compose up`.
 
-3. O terceiro passo será um comando para conectar no docker via terminal após o mesmo estiver rodando `docker exec -it pet-shop-challenge-laravel.test-1 bash`, os próximos passos precisarão ser feitos dentro deste terminal.
-
-4. O quarto passo irá servir para criar as tables `php artisan migrate`
-
-5. O quinto e ultimo passo irá servir para criar a key jwt `php artisan jwt:secret`
+3. É necessário executar os comandos dentro do docker
+ - Conectar no docker via bash
+ `docker exec -it pet-shop-challenge-laravel.test-1 bash`
+ - Criar as tabelas no banco de dados
+  `php artisan migrate`
+ - Criar a chave JWT
+ `php artisan jwt:secret`
 #
 # Controllers
 ## AuthController
