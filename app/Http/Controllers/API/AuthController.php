@@ -15,6 +15,10 @@ class AuthController extends Controller
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
+    /**
+     * Function that performs login
+     *
+     */
     public function login(Request $request)
     {
         $request->validate([
@@ -41,6 +45,10 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Function that performs register
+     *
+     */
     public function register(Request $request)
     {
         $request->validate([
@@ -69,6 +77,10 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Function that performs logout
+     *
+     */
     public function logout()
     {
         Auth::logout();
@@ -77,6 +89,10 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Function that performs refresh
+     *
+     */
     public function refresh()
     {
         return response()->json([
@@ -88,6 +104,12 @@ class AuthController extends Controller
         ]);
     }
 
+
+    /**
+     * List all users or a single user if you have the id .
+     *
+     * @param $id_atendimento
+     */
     public function get(Int $id = null) {
         $is_admin = auth()->user()->is_admin;
         $id_user  = Auth::id();
@@ -105,6 +127,11 @@ class AuthController extends Controller
         return $data;
     }
 
+    /**
+     * Change one user .
+     *
+     * @param $id
+     */
     public function update(Int $id, Request $request) {
         $is_admin = auth()->user()->is_admin;
         $id_user  = Auth::id();
@@ -126,6 +153,11 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * Delete one user .
+     *
+     * @param $id
+     */
     public function delete(Int $id) {
         $is_admin = auth()->user()->is_admin;
         $id_user  = Auth::id();

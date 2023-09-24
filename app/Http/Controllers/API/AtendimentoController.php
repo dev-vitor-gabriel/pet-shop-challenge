@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AtendimentoController extends Controller
 {
+    /**
+     * Create new services.
+     *
+     */
     public function create(Request $request) {
 
         $request->validate([
@@ -23,6 +27,11 @@ class AtendimentoController extends Controller
         return response()->json($pet,201);
     }
 
+    /**
+     * List all services or a single service if you have the ID .
+     *
+     * @param $id_atendimento
+     */
     public function get(Int $id_atendimento = null) {
         $is_admin = auth()->user()->is_admin;
         $id_user  = Auth::id();
@@ -37,9 +46,15 @@ class AtendimentoController extends Controller
         }
 
         $data = Atendimento::getAll($id_user);
+
         return $data;
     }
 
+    /**
+     * Change one service .
+     *
+     * @param $id_atendimento
+     */
     public function update(Int $id_atendimento, Request $request) {
         $is_admin = auth()->user()->is_admin;
         $id_user  = Auth::id();
@@ -58,6 +73,11 @@ class AtendimentoController extends Controller
         }
     }
 
+    /**
+     * Delete one service .
+     *
+     * @param $id_atendimento
+     */
     public function delete(Int $id_atendimento) {
         $is_admin = auth()->user()->is_admin;
         $id_user  = Auth::id();

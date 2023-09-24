@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class PetController extends Controller
 {
+    /**
+     * Create new pet .
+     *
+     * @param $id_atendimento
+     */
     public function create(Request $request)
     {
 
@@ -25,7 +30,11 @@ class PetController extends Controller
         return response()->json($pet, 201);
     }
 
-
+    /**
+     * List all pets or a single pet if you have the id_pet .
+     *
+     * @param $id_atendimento
+     */
     public function get(Int $id_pet = null)
     {
         $is_admin = auth()->user()->is_admin;
@@ -42,6 +51,11 @@ class PetController extends Controller
         return $data;
     }
 
+    /**
+     * Change one pet .
+     *
+     * @param $id_pet
+     */
     public function update(Int $id_pet, Request $request)
     {
         $is_admin = auth()->user()->is_admin;
@@ -60,7 +74,11 @@ class PetController extends Controller
         }
     }
 
-    // delete (inactivate)
+    /**
+     * Delete one pet .
+     *
+     * @param $id_pet
+     */
     public function delete(Int $id_pet)
     {
         $is_admin = auth()->user()->is_admin;
