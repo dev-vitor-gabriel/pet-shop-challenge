@@ -5,10 +5,12 @@
 1. Instalar dependencias 
 `composer install`
 
-2. Iniciar o docker
+2. Duplicar o arquivo `.env.example` e renomear para `.env`
+
+3. Iniciar o docker
 `docker compose up`.
 
-3. É necessário executar os comandos dentro do docker
+4. É necessário executar os comandos dentro do docker
  - Conectar no docker via bash
  `docker exec -it pet-shop-challenge-laravel.test-1 bash`
  - Criar as tabelas no banco de dados
