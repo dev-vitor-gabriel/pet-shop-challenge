@@ -43,8 +43,8 @@
 
 ```
 {
-	"name": "Digite aqui o nome do usuário",
-	"email": "Digite aqui o email do usuário",
+	"name   ": "Digite aqui o nome do usuário",
+	"email   ": "Digite aqui o email do usuário",
     "password": "Digite aqui sua senha",
     "is_admin": "Defina como true ou false(Caso não seja preenchido será como padrão false)"
 }
