@@ -48,7 +48,8 @@ class AtendimentoController extends Controller
             $id_user = null;
         }
         $request->validate([
-            'id_pet_tba' => 'required|int'
+            'id_pet_tba'          => 'int',
+            'dta_atendimento_tba' => 'date'
         ]);
         $atendimento = Atendimento::updateReg($id_atendimento, $request, $id_user);
 

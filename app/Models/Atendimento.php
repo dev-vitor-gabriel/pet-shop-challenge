@@ -79,7 +79,8 @@ class Atendimento extends Model
             ->where('users.id', $id_user);
         }
         $data = $data->update([
-            'id_pet_tba' => $obj->id_pet_tba
+            'id_pet_tba'          => $obj->id_pet_tba,
+            'dta_atendimento_tba' => $obj->dta_atendimento_tba,
         ]);
 
         return $data;
